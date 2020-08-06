@@ -1,0 +1,417 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="WyborDaty" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_dataPoczatkowaZapisy" Type="OutArgument(x:String)" />
+    <x:Property Name="out_dataKoncowaZapisy" Type="OutArgument(x:String)" />
+    <x:Property Name="out_dataWiekowanie" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1255,831</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>WyborDaty_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="46">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="WyborDaty" sap:VirtualizedContainerService.HintSize="242,397" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="dataRaportuPoczatkowaZapisy" />
+      <Variable x:TypeArguments="x:String" Name="zestawienieNaDzienWiekowanie" />
+      <Variable x:TypeArguments="x:String" Name="dataKoncowaZapisy" />
+      <Variable x:TypeArguments="x:String" Name="dataRaportuKoncowaZapisy" />
+      <Variable x:TypeArguments="njl:JObject" Name="jsonDataWiekowanieZapisy" />
+      <Variable x:TypeArguments="x:String" Name="dataRaportuWiekowanie" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Zapisy data poczatkowa" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ufa:FormActivity Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormTitle="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form Zapisy Poczatkowa Data" FormFieldsOutputData="[dataRaportuPoczatkowaZapisy]" FormHeight="500" FormSchema="%[{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;size&quot;:&quot;md&quot;,&quot;block&quot;:false,&quot;action&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;theme&quot;:&quot;primary&quot;,&quot;input&quot;:true,&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;suffix&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;defaultValue&quot;:null,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:false,&quot;hidden&quot;:false,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;tableView&quot;:false,&quot;modalEdit&quot;:false,&quot;labelPosition&quot;:&quot;top&quot;,&quot;description&quot;:&quot;&quot;,&quot;errorLabel&quot;:&quot;&quot;,&quot;tooltip&quot;:&quot;&quot;,&quot;hideLabel&quot;:false,&quot;tabindex&quot;:&quot;&quot;,&quot;disabled&quot;:false,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;input&quot;},&quot;attributes&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;leftIcon&quot;:&quot;&quot;,&quot;rightIcon&quot;:&quot;&quot;,&quot;dataGridLabel&quot;:true,&quot;id&quot;:&quot;e60a9cg&quot;},{&quot;label&quot;:&quot;Podaj datę początkową ZAPISÓW&quot;,&quot;labelPosition&quot;:&quot;top&quot;,&quot;allowInput&quot;:true,&quot;format&quot;:&quot;yyyy-MM-dd&quot;,&quot;description&quot;:&quot;&quot;,&quot;hidden&quot;:false,&quot;hideLabel&quot;:false,&quot;disabled&quot;:false,&quot;tableView&quot;:false,&quot;datePicker&quot;:{&quot;minDate&quot;:null,&quot;maxDate&quot;:null,&quot;disable&quot;:&quot;&quot;,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;showWeeks&quot;:true,&quot;startingDay&quot;:0,&quot;initDate&quot;:&quot;&quot;,&quot;minMode&quot;:&quot;day&quot;,&quot;maxMode&quot;:&quot;year&quot;,&quot;yearRows&quot;:4,&quot;yearColumns&quot;:5},&quot;timePicker&quot;:{&quot;showMeridian&quot;:true,&quot;hourStep&quot;:0,&quot;minuteStep&quot;:0,&quot;readonlyInput&quot;:false,&quot;mousewheel&quot;:true,&quot;arrowkeys&quot;:true},&quot;defaultValue&quot;:&quot;&quot;,&quot;defaultDate&quot;:&quot;&quot;,&quot;customOptions&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;customMessage&quot;:&quot;&quot;,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;errorLabel&quot;:&quot;&quot;,&quot;key&quot;:&quot;podajDatePoczatkowaZapisow&quot;,&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;type&quot;:&quot;datetime&quot;,&quot;timezone&quot;:&quot;&quot;,&quot;input&quot;:true,&quot;suffix&quot;:&quot;&lt;i ref=\&quot;icon\&quot; class=\&quot;fa fa-calendar\&quot; style=\&quot;\&quot;&gt;&lt;/i&gt;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;calendar&quot;,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;language&quot;:&quot;en&quot;,&quot;useLocaleSettings&quot;:false,&quot;allowInput&quot;:true,&quot;mode&quot;:&quot;single&quot;,&quot;enableTime&quot;:true,&quot;noCalendar&quot;:false,&quot;format&quot;:&quot;yyyy-MM-dd&quot;,&quot;hourIncrement&quot;:0,&quot;minuteIncrement&quot;:0,&quot;time_24hr&quot;:false,&quot;minDate&quot;:null,&quot;disabledDates&quot;:&quot;&quot;,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;maxDate&quot;:null},&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:true,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;modalEdit&quot;:false,&quot;tooltip&quot;:&quot;&quot;,&quot;tabindex&quot;:&quot;&quot;,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;attributes&quot;:{},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;useLocaleSettings&quot;:false,&quot;enableDate&quot;:true,&quot;enableTime&quot;:true,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;datepickerMode&quot;:&quot;day&quot;,&quot;id&quot;:&quot;edljb0p&quot;}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="600" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="639,1588" sap2010:WorkflowViewState.IdRef="FormActivity_1" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
+        <ufa:FormActivity.Body>
+          <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="601,1462" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="njl:JObject" Name="jsonDataPoczatkowaZapisy" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="559,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonDataPoczatkowaZapisy]" JsonString="[dataRaportuPoczatkowaZapisy]" />
+              <Assign sap:VirtualizedContainerService.HintSize="559,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_dataPoczatkowaZapisy]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[jsonDataPoczatkowaZapisy("podajDatePoczatkowaZapisow").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <If Condition="[out_dataPoczatkowaZapisy=&quot;&quot;]" sap:VirtualizedContainerService.HintSize="559,526" sap2010:WorkflowViewState.IdRef="If_1">
+                <If.Then>
+                  <ufa:FormActivity Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormTitle="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form Zapisy Poczatkowa Data" FormFieldsOutputData="[dataRaportuPoczatkowaZapisy]" FormHeight="500" FormSchema="%[{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;size&quot;:&quot;md&quot;,&quot;block&quot;:false,&quot;action&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;theme&quot;:&quot;primary&quot;,&quot;input&quot;:true,&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;suffix&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;defaultValue&quot;:null,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:false,&quot;hidden&quot;:false,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;tableView&quot;:false,&quot;modalEdit&quot;:false,&quot;labelPosition&quot;:&quot;top&quot;,&quot;description&quot;:&quot;&quot;,&quot;errorLabel&quot;:&quot;&quot;,&quot;tooltip&quot;:&quot;&quot;,&quot;hideLabel&quot;:false,&quot;tabindex&quot;:&quot;&quot;,&quot;disabled&quot;:false,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;input&quot;},&quot;attributes&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;leftIcon&quot;:&quot;&quot;,&quot;rightIcon&quot;:&quot;&quot;,&quot;dataGridLabel&quot;:true,&quot;id&quot;:&quot;etf99o&quot;},{&quot;label&quot;:&quot;Podaj POPRAWNĄ datę początkową ZAPISÓW-w przeciwnym przypadku proces się zakończy.&quot;,&quot;labelPosition&quot;:&quot;top&quot;,&quot;allowInput&quot;:true,&quot;format&quot;:&quot;yyyy-MM-dd&quot;,&quot;description&quot;:&quot;&quot;,&quot;hidden&quot;:false,&quot;hideLabel&quot;:false,&quot;disabled&quot;:false,&quot;tableView&quot;:false,&quot;datePicker&quot;:{&quot;minDate&quot;:null,&quot;maxDate&quot;:null,&quot;disable&quot;:&quot;&quot;,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;showWeeks&quot;:true,&quot;startingDay&quot;:0,&quot;initDate&quot;:&quot;&quot;,&quot;minMode&quot;:&quot;day&quot;,&quot;maxMode&quot;:&quot;year&quot;,&quot;yearRows&quot;:4,&quot;yearColumns&quot;:5},&quot;timePicker&quot;:{&quot;showMeridian&quot;:true,&quot;hourStep&quot;:0,&quot;minuteStep&quot;:0,&quot;readonlyInput&quot;:false,&quot;mousewheel&quot;:true,&quot;arrowkeys&quot;:true},&quot;defaultValue&quot;:&quot;&quot;,&quot;defaultDate&quot;:&quot;&quot;,&quot;customOptions&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;customMessage&quot;:&quot;&quot;,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;errorLabel&quot;:&quot;&quot;,&quot;key&quot;:&quot;podajDatePoczatkowaZapisow&quot;,&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;type&quot;:&quot;datetime&quot;,&quot;timezone&quot;:&quot;&quot;,&quot;input&quot;:true,&quot;suffix&quot;:&quot;&lt;i ref=\&quot;icon\&quot; class=\&quot;fa fa-calendar\&quot; style=\&quot;\&quot;&gt;&lt;/i&gt;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;calendar&quot;,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;language&quot;:&quot;en&quot;,&quot;useLocaleSettings&quot;:false,&quot;allowInput&quot;:true,&quot;mode&quot;:&quot;single&quot;,&quot;enableTime&quot;:true,&quot;noCalendar&quot;:false,&quot;format&quot;:&quot;yyyy-MM-dd&quot;,&quot;hourIncrement&quot;:0,&quot;minuteIncrement&quot;:0,&quot;time_24hr&quot;:false,&quot;minDate&quot;:null,&quot;disabledDates&quot;:&quot;&quot;,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;maxDate&quot;:null},&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:true,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;modalEdit&quot;:false,&quot;tooltip&quot;:&quot;&quot;,&quot;tabindex&quot;:&quot;&quot;,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;attributes&quot;:{},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;useLocaleSettings&quot;:false,&quot;enableDate&quot;:true,&quot;enableTime&quot;:true,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;datepickerMode&quot;:&quot;day&quot;,&quot;id&quot;:&quot;e1m33wq&quot;}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="650" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="414,378" sap2010:WorkflowViewState.IdRef="FormActivity_4" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
+                    <ufa:FormActivity.Body>
+                      <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,252" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="njl:JObject" Name="jsonDataPoczatkowaZapisy" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[jsonDataPoczatkowaZapisy]" JsonString="[dataRaportuPoczatkowaZapisy]" />
+                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[out_dataPoczatkowaZapisy]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[jsonDataPoczatkowaZapisy("podajDatePoczatkowaZapisow").ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ActivityAction>
+                    </ufa:FormActivity.Body>
+                    <ufa:FormActivity.DelayBody>
+                      <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                        <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                      </ActivityAction>
+                    </ufa:FormActivity.DelayBody>
+                    <ufa:FormActivity.FormFieldsCollection>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ufa:FormActivity.FormFieldsCollection>
+                  </ufa:FormActivity>
+                </If.Then>
+              </If>
+              <If Condition="[out_dataPoczatkowaZapisy=&quot;&quot;]" sap:VirtualizedContainerService.HintSize="559,208" sap2010:WorkflowViewState.IdRef="If_5">
+                <If.Then>
+                  <Throw Exception="[new Exception(&quot;Brak daty poczatkowej dla raportu Zapisy&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                </If.Then>
+              </If>
+              <Sequence sap2010:Annotation.AnnotationText="Do Symfoni powinien wkleic sie format: yyyy-MM-dd" sap:VirtualizedContainerService.HintSize="559,225" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap2010:Annotation.AnnotationText="sciaga sie z formularza: MM/dd/yyyy" sap:VirtualizedContainerService.HintSize="262,91" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_dataPoczatkowaZapisy]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[out_dataPoczatkowaZapisy.Substring(6,4)+"-"+out_dataPoczatkowaZapisy.Substring(0,2)+"-"+out_dataPoczatkowaZapisy.Substring(3,2)]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+              </Sequence>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="559,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Ustalono date poczatkowa zapisow&quot;]" />
+            </Sequence>
+          </ActivityAction>
+        </ufa:FormActivity.Body>
+        <ufa:FormActivity.DelayBody>
+          <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+            <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_1" />
+          </ActivityAction>
+        </ufa:FormActivity.DelayBody>
+        <ufa:FormActivity.FormFieldsCollection>
+          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+        </ufa:FormActivity.FormFieldsCollection>
+      </ufa:FormActivity>
+    </Sequence>
+    <Sequence DisplayName="Zapisy data koncowa" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ufa:FormActivity Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormTitle="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form Zapisy Koncowa Data" FormFieldsOutputData="[dataRaportuKoncowaZapisy]" FormHeight="500" FormSchema="%[{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;size&quot;:&quot;md&quot;,&quot;block&quot;:false,&quot;action&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;theme&quot;:&quot;primary&quot;,&quot;input&quot;:true,&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;suffix&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;defaultValue&quot;:null,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:false,&quot;hidden&quot;:false,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;tableView&quot;:false,&quot;modalEdit&quot;:false,&quot;labelPosition&quot;:&quot;top&quot;,&quot;description&quot;:&quot;&quot;,&quot;errorLabel&quot;:&quot;&quot;,&quot;tooltip&quot;:&quot;&quot;,&quot;hideLabel&quot;:false,&quot;tabindex&quot;:&quot;&quot;,&quot;disabled&quot;:false,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;input&quot;},&quot;attributes&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;leftIcon&quot;:&quot;&quot;,&quot;rightIcon&quot;:&quot;&quot;,&quot;dataGridLabel&quot;:true,&quot;id&quot;:&quot;ee5nm1a&quot;},{&quot;label&quot;:&quot;Podaj datę końcową zapisów&quot;,&quot;labelPosition&quot;:&quot;top&quot;,&quot;allowInput&quot;:true,&quot;format&quot;:&quot;yyyy-MM-dd&quot;,&quot;description&quot;:&quot;&quot;,&quot;hidden&quot;:false,&quot;hideLabel&quot;:false,&quot;disabled&quot;:false,&quot;tableView&quot;:false,&quot;datePicker&quot;:{&quot;minDate&quot;:null,&quot;maxDate&quot;:null,&quot;disable&quot;:&quot;&quot;,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;showWeeks&quot;:true,&quot;startingDay&quot;:0,&quot;initDate&quot;:&quot;&quot;,&quot;minMode&quot;:&quot;day&quot;,&quot;maxMode&quot;:&quot;year&quot;,&quot;yearRows&quot;:4,&quot;yearColumns&quot;:5},&quot;timePicker&quot;:{&quot;showMeridian&quot;:true,&quot;hourStep&quot;:0,&quot;minuteStep&quot;:0,&quot;readonlyInput&quot;:false,&quot;mousewheel&quot;:true,&quot;arrowkeys&quot;:true},&quot;defaultValue&quot;:&quot;&quot;,&quot;defaultDate&quot;:&quot;&quot;,&quot;customOptions&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;customMessage&quot;:&quot;&quot;,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;errorLabel&quot;:&quot;&quot;,&quot;key&quot;:&quot;podajDatePoczatkowaZapisow&quot;,&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;type&quot;:&quot;datetime&quot;,&quot;timezone&quot;:&quot;&quot;,&quot;input&quot;:true,&quot;suffix&quot;:&quot;&lt;i ref=\&quot;icon\&quot; class=\&quot;fa fa-calendar\&quot; style=\&quot;\&quot;&gt;&lt;/i&gt;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;calendar&quot;,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;language&quot;:&quot;en&quot;,&quot;useLocaleSettings&quot;:false,&quot;allowInput&quot;:true,&quot;mode&quot;:&quot;single&quot;,&quot;enableTime&quot;:true,&quot;noCalendar&quot;:false,&quot;format&quot;:&quot;yyyy-MM-dd&quot;,&quot;hourIncrement&quot;:0,&quot;minuteIncrement&quot;:0,&quot;time_24hr&quot;:false,&quot;minDate&quot;:null,&quot;disabledDates&quot;:&quot;&quot;,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;maxDate&quot;:null},&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:true,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;modalEdit&quot;:false,&quot;tooltip&quot;:&quot;&quot;,&quot;tabindex&quot;:&quot;&quot;,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;attributes&quot;:{},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;useLocaleSettings&quot;:false,&quot;enableDate&quot;:true,&quot;enableTime&quot;:true,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;datepickerMode&quot;:&quot;day&quot;,&quot;id&quot;:&quot;e60qjub&quot;}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="600" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="639,1588" sap2010:WorkflowViewState.IdRef="FormActivity_2" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
+        <ufa:FormActivity.Body>
+          <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="601,1462" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="njl:JObject" Name="jsonDataPoczatkowaZapisy" />
+                <Variable x:TypeArguments="njl:JObject" Name="jsonDataKoncowaZapisy" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="559,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[jsonDataKoncowaZapisy]" JsonString="[dataRaportuKoncowaZapisy]" />
+              <Assign sap:VirtualizedContainerService.HintSize="559,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_dataKoncowaZapisy]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[jsonDataKoncowaZapisy("podajDatePoczatkowaZapisow").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <If Condition="[out_dataKoncowaZapisy = &quot;&quot;]" sap:VirtualizedContainerService.HintSize="559,526" sap2010:WorkflowViewState.IdRef="If_2">
+                <If.Then>
+                  <ufa:FormActivity Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormTitle="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form Zapisy Koncowa Data" FormFieldsOutputData="[dataRaportuKoncowaZapisy]" FormHeight="500" FormSchema="%[{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;size&quot;:&quot;md&quot;,&quot;block&quot;:false,&quot;action&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;theme&quot;:&quot;primary&quot;,&quot;input&quot;:true,&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;suffix&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;defaultValue&quot;:null,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:false,&quot;hidden&quot;:false,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;tableView&quot;:false,&quot;modalEdit&quot;:false,&quot;labelPosition&quot;:&quot;top&quot;,&quot;description&quot;:&quot;&quot;,&quot;errorLabel&quot;:&quot;&quot;,&quot;tooltip&quot;:&quot;&quot;,&quot;hideLabel&quot;:false,&quot;tabindex&quot;:&quot;&quot;,&quot;disabled&quot;:false,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;input&quot;},&quot;attributes&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;leftIcon&quot;:&quot;&quot;,&quot;rightIcon&quot;:&quot;&quot;,&quot;dataGridLabel&quot;:true,&quot;id&quot;:&quot;ej1wad6&quot;},{&quot;label&quot;:&quot;Podaj POPRAWNĄ datę końcową ZAPISÓW-w przeciwnym przypadku proces się zakończy.&quot;,&quot;labelPosition&quot;:&quot;top&quot;,&quot;allowInput&quot;:true,&quot;format&quot;:&quot;yyyy-MM-dd&quot;,&quot;description&quot;:&quot;&quot;,&quot;hidden&quot;:false,&quot;hideLabel&quot;:false,&quot;disabled&quot;:false,&quot;tableView&quot;:false,&quot;datePicker&quot;:{&quot;minDate&quot;:null,&quot;maxDate&quot;:null,&quot;disable&quot;:&quot;&quot;,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;showWeeks&quot;:true,&quot;startingDay&quot;:0,&quot;initDate&quot;:&quot;&quot;,&quot;minMode&quot;:&quot;day&quot;,&quot;maxMode&quot;:&quot;year&quot;,&quot;yearRows&quot;:4,&quot;yearColumns&quot;:5},&quot;timePicker&quot;:{&quot;showMeridian&quot;:true,&quot;hourStep&quot;:0,&quot;minuteStep&quot;:0,&quot;readonlyInput&quot;:false,&quot;mousewheel&quot;:true,&quot;arrowkeys&quot;:true},&quot;defaultValue&quot;:&quot;&quot;,&quot;defaultDate&quot;:&quot;&quot;,&quot;customOptions&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;customMessage&quot;:&quot;&quot;,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;errorLabel&quot;:&quot;&quot;,&quot;key&quot;:&quot;podajDatePoczatkowaZapisow&quot;,&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;type&quot;:&quot;datetime&quot;,&quot;timezone&quot;:&quot;&quot;,&quot;input&quot;:true,&quot;suffix&quot;:&quot;&lt;i ref=\&quot;icon\&quot; class=\&quot;fa fa-calendar\&quot; style=\&quot;\&quot;&gt;&lt;/i&gt;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;calendar&quot;,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;language&quot;:&quot;en&quot;,&quot;useLocaleSettings&quot;:false,&quot;allowInput&quot;:true,&quot;mode&quot;:&quot;single&quot;,&quot;enableTime&quot;:true,&quot;noCalendar&quot;:false,&quot;format&quot;:&quot;yyyy-MM-dd&quot;,&quot;hourIncrement&quot;:0,&quot;minuteIncrement&quot;:0,&quot;time_24hr&quot;:false,&quot;minDate&quot;:null,&quot;disabledDates&quot;:&quot;&quot;,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;maxDate&quot;:null},&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:true,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;modalEdit&quot;:false,&quot;tooltip&quot;:&quot;&quot;,&quot;tabindex&quot;:&quot;&quot;,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;attributes&quot;:{},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;useLocaleSettings&quot;:false,&quot;enableDate&quot;:true,&quot;enableTime&quot;:true,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;datepickerMode&quot;:&quot;day&quot;,&quot;id&quot;:&quot;edvo3og&quot;}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="650" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="414,378" sap2010:WorkflowViewState.IdRef="FormActivity_5" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
+                    <ufa:FormActivity.Body>
+                      <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,252" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="njl:JObject" Name="jsonDataPoczatkowaZapisy" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_5" JsonObject="[jsonDataKoncowaZapisy]" JsonString="[dataRaportuKoncowaZapisy]" />
+                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[out_dataKoncowaZapisy]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[jsonDataKoncowaZapisy("podajDatePoczatkowaZapisow").ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ActivityAction>
+                    </ufa:FormActivity.Body>
+                    <ufa:FormActivity.DelayBody>
+                      <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                        <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_5" />
+                      </ActivityAction>
+                    </ufa:FormActivity.DelayBody>
+                    <ufa:FormActivity.FormFieldsCollection>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ufa:FormActivity.FormFieldsCollection>
+                  </ufa:FormActivity>
+                </If.Then>
+              </If>
+              <If Condition="[out_dataKoncowaZapisy=&quot;&quot;]" sap:VirtualizedContainerService.HintSize="559,208" sap2010:WorkflowViewState.IdRef="If_4">
+                <If.Then>
+                  <Throw Exception="[new Exception(&quot;Brak daty koncowej dla raportu Zapisy&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </If.Then>
+              </If>
+              <Sequence sap2010:Annotation.AnnotationText="Do Symfoni powinien wkleic sie format: yyyy-MM-dd" sap:VirtualizedContainerService.HintSize="559,225" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap2010:Annotation.AnnotationText="sciaga sie z formularza: MM/dd/yyyy" sap:VirtualizedContainerService.HintSize="262,91" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_dataKoncowaZapisy]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[out_dataKoncowaZapisy.Substring(6,4)+"-"+out_dataKoncowaZapisy.Substring(0,2)+"-"+out_dataKoncowaZapisy.Substring(3,2)]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+              </Sequence>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="559,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Ustalono date koncowa zapisow&quot;]" />
+            </Sequence>
+          </ActivityAction>
+        </ufa:FormActivity.Body>
+        <ufa:FormActivity.DelayBody>
+          <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+            <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_2" />
+          </ActivityAction>
+        </ufa:FormActivity.DelayBody>
+        <ufa:FormActivity.FormFieldsCollection>
+          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+        </ufa:FormActivity.FormFieldsCollection>
+      </ufa:FormActivity>
+    </Sequence>
+    <ui:CommentOut sap2010:Annotation.AnnotationText="Wiekowanie zostało rozdzielone" DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,93" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="723,1769" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Wiekowanie data" sap:VirtualizedContainerService.HintSize="681,1677" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ufa:FormActivity Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormTitle="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form Wiekowanie Data" FormFieldsOutputData="[dataRaportuWiekowanie]" FormHeight="500" FormSchema="%[{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;size&quot;:&quot;md&quot;,&quot;block&quot;:false,&quot;action&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;theme&quot;:&quot;primary&quot;,&quot;input&quot;:true,&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;suffix&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;defaultValue&quot;:null,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:false,&quot;hidden&quot;:false,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;tableView&quot;:false,&quot;modalEdit&quot;:false,&quot;labelPosition&quot;:&quot;top&quot;,&quot;description&quot;:&quot;&quot;,&quot;errorLabel&quot;:&quot;&quot;,&quot;tooltip&quot;:&quot;&quot;,&quot;hideLabel&quot;:false,&quot;tabindex&quot;:&quot;&quot;,&quot;disabled&quot;:false,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;input&quot;},&quot;attributes&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;leftIcon&quot;:&quot;&quot;,&quot;rightIcon&quot;:&quot;&quot;,&quot;dataGridLabel&quot;:true,&quot;id&quot;:&quot;ev1s2or&quot;},{&quot;label&quot;:&quot;Podaj datę zestawienia raportu WIEKOWANIA&quot;,&quot;labelPosition&quot;:&quot;top&quot;,&quot;allowInput&quot;:true,&quot;format&quot;:&quot;yyyy-MM-dd&quot;,&quot;description&quot;:&quot;&quot;,&quot;hidden&quot;:false,&quot;hideLabel&quot;:false,&quot;disabled&quot;:false,&quot;tableView&quot;:false,&quot;datePicker&quot;:{&quot;minDate&quot;:null,&quot;maxDate&quot;:null,&quot;disable&quot;:&quot;&quot;,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;showWeeks&quot;:true,&quot;startingDay&quot;:0,&quot;initDate&quot;:&quot;&quot;,&quot;minMode&quot;:&quot;day&quot;,&quot;maxMode&quot;:&quot;year&quot;,&quot;yearRows&quot;:4,&quot;yearColumns&quot;:5},&quot;timePicker&quot;:{&quot;showMeridian&quot;:true,&quot;hourStep&quot;:0,&quot;minuteStep&quot;:0,&quot;readonlyInput&quot;:false,&quot;mousewheel&quot;:true,&quot;arrowkeys&quot;:true},&quot;defaultValue&quot;:&quot;&quot;,&quot;defaultDate&quot;:&quot;&quot;,&quot;customOptions&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;customMessage&quot;:&quot;&quot;,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;errorLabel&quot;:&quot;&quot;,&quot;key&quot;:&quot;podajDatePoczatkowaZapisow&quot;,&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;type&quot;:&quot;datetime&quot;,&quot;timezone&quot;:&quot;&quot;,&quot;input&quot;:true,&quot;suffix&quot;:&quot;&lt;i ref=\&quot;icon\&quot; class=\&quot;fa fa-calendar\&quot; style=\&quot;\&quot;&gt;&lt;/i&gt;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;calendar&quot;,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;language&quot;:&quot;en&quot;,&quot;useLocaleSettings&quot;:false,&quot;allowInput&quot;:true,&quot;mode&quot;:&quot;single&quot;,&quot;enableTime&quot;:true,&quot;noCalendar&quot;:false,&quot;format&quot;:&quot;yyyy-MM-dd&quot;,&quot;hourIncrement&quot;:0,&quot;minuteIncrement&quot;:0,&quot;time_24hr&quot;:false,&quot;minDate&quot;:null,&quot;disabledDates&quot;:&quot;&quot;,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;maxDate&quot;:null},&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:true,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;modalEdit&quot;:false,&quot;tooltip&quot;:&quot;&quot;,&quot;tabindex&quot;:&quot;&quot;,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;attributes&quot;:{},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;useLocaleSettings&quot;:false,&quot;enableDate&quot;:true,&quot;enableTime&quot;:true,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;datepickerMode&quot;:&quot;day&quot;,&quot;id&quot;:&quot;eck28&quot;}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="600" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="639,1585" sap2010:WorkflowViewState.IdRef="FormActivity_3" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
+              <ufa:FormActivity.Body>
+                <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="601,1459" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="njl:JObject" Name="jsonDataPoczatkowaZapisy" />
+                      <Variable x:TypeArguments="njl:JObject" Name="jsonDataKoncowaZapisy" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="559,59" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[jsonDataWiekowanieZapisy]" JsonString="[dataRaportuWiekowanie]" />
+                    <Assign sap:VirtualizedContainerService.HintSize="559,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_dataWiekowanie]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[jsonDataWiekowanieZapisy("podajDatePoczatkowaZapisow").ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <If Condition="[out_dataWiekowanie = &quot;&quot;]" sap:VirtualizedContainerService.HintSize="559,524" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If.Then>
+                        <ufa:FormActivity Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormTitle="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form Wiekowanie Data" FormFieldsOutputData="[dataRaportuWiekowanie]" FormHeight="500" FormSchema="%[{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;size&quot;:&quot;md&quot;,&quot;block&quot;:false,&quot;action&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;theme&quot;:&quot;primary&quot;,&quot;input&quot;:true,&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;suffix&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;defaultValue&quot;:null,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:false,&quot;hidden&quot;:false,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;tableView&quot;:false,&quot;modalEdit&quot;:false,&quot;labelPosition&quot;:&quot;top&quot;,&quot;description&quot;:&quot;&quot;,&quot;errorLabel&quot;:&quot;&quot;,&quot;tooltip&quot;:&quot;&quot;,&quot;hideLabel&quot;:false,&quot;tabindex&quot;:&quot;&quot;,&quot;disabled&quot;:false,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;input&quot;},&quot;attributes&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;leftIcon&quot;:&quot;&quot;,&quot;rightIcon&quot;:&quot;&quot;,&quot;dataGridLabel&quot;:true,&quot;id&quot;:&quot;es9fezj&quot;},{&quot;label&quot;:&quot;Podaj POPRAWNĄ datę WIEKOWANIA-w przeciwnym przypadku proces się zakończy.&quot;,&quot;labelPosition&quot;:&quot;top&quot;,&quot;allowInput&quot;:true,&quot;format&quot;:&quot;yyyy-MM-dd&quot;,&quot;description&quot;:&quot;&quot;,&quot;hidden&quot;:false,&quot;hideLabel&quot;:false,&quot;disabled&quot;:false,&quot;tableView&quot;:false,&quot;datePicker&quot;:{&quot;minDate&quot;:null,&quot;maxDate&quot;:null,&quot;disable&quot;:&quot;&quot;,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;showWeeks&quot;:true,&quot;startingDay&quot;:0,&quot;initDate&quot;:&quot;&quot;,&quot;minMode&quot;:&quot;day&quot;,&quot;maxMode&quot;:&quot;year&quot;,&quot;yearRows&quot;:4,&quot;yearColumns&quot;:5},&quot;timePicker&quot;:{&quot;showMeridian&quot;:true,&quot;hourStep&quot;:0,&quot;minuteStep&quot;:0,&quot;readonlyInput&quot;:false,&quot;mousewheel&quot;:true,&quot;arrowkeys&quot;:true},&quot;defaultValue&quot;:&quot;&quot;,&quot;defaultDate&quot;:&quot;&quot;,&quot;customOptions&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;customMessage&quot;:&quot;&quot;,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;errorLabel&quot;:&quot;&quot;,&quot;key&quot;:&quot;podajDatePoczatkowaZapisow&quot;,&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;type&quot;:&quot;datetime&quot;,&quot;timezone&quot;:&quot;&quot;,&quot;input&quot;:true,&quot;suffix&quot;:&quot;&lt;i ref=\&quot;icon\&quot; class=\&quot;fa fa-calendar\&quot; style=\&quot;\&quot;&gt;&lt;/i&gt;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;calendar&quot;,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;language&quot;:&quot;en&quot;,&quot;useLocaleSettings&quot;:false,&quot;allowInput&quot;:true,&quot;mode&quot;:&quot;single&quot;,&quot;enableTime&quot;:true,&quot;noCalendar&quot;:false,&quot;format&quot;:&quot;yyyy-MM-dd&quot;,&quot;hourIncrement&quot;:0,&quot;minuteIncrement&quot;:0,&quot;time_24hr&quot;:false,&quot;minDate&quot;:null,&quot;disabledDates&quot;:&quot;&quot;,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;maxDate&quot;:null},&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:true,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;modalEdit&quot;:false,&quot;tooltip&quot;:&quot;&quot;,&quot;tabindex&quot;:&quot;&quot;,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;attributes&quot;:{},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;useLocaleSettings&quot;:false,&quot;enableDate&quot;:true,&quot;enableTime&quot;:true,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;datepickerMode&quot;:&quot;day&quot;,&quot;id&quot;:&quot;e7uewgt&quot;}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="650" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="414,377" sap2010:WorkflowViewState.IdRef="FormActivity_6" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
+                          <ufa:FormActivity.Body>
+                            <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,251" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="njl:JObject" Name="jsonDataPoczatkowaZapisy" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_6" JsonObject="[jsonDataWiekowanieZapisy]" JsonString="[dataRaportuWiekowanie]" />
+                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[out_dataWiekowanie]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[jsonDataWiekowanieZapisy("podajDatePoczatkowaZapisow").ToString]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </ActivityAction>
+                          </ufa:FormActivity.Body>
+                          <ufa:FormActivity.DelayBody>
+                            <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                              <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_6" />
+                            </ActivityAction>
+                          </ufa:FormActivity.DelayBody>
+                          <ufa:FormActivity.FormFieldsCollection>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ufa:FormActivity.FormFieldsCollection>
+                        </ufa:FormActivity>
+                      </If.Then>
+                    </If>
+                    <If Condition="[out_dataWiekowanie=&quot;&quot;]" sap:VirtualizedContainerService.HintSize="559,208" sap2010:WorkflowViewState.IdRef="If_6">
+                      <If.Then>
+                        <Throw Exception="[new Exception(&quot;Brak daty dla raportu Wiekowanie&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                      </If.Then>
+                    </If>
+                    <Sequence sap2010:Annotation.AnnotationText="Do Symfoni powinien wkleic sie format: yyyy-MM-dd" sap:VirtualizedContainerService.HintSize="559,225" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap2010:Annotation.AnnotationText="sciaga sie z formularza: MM/dd/yyyy" sap:VirtualizedContainerService.HintSize="262,91" sap2010:WorkflowViewState.IdRef="Assign_7">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[out_dataWiekowanie]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[out_dataWiekowanie.Substring(6,4)+"-"+out_dataWiekowanie.Substring(0,2)+"-"+out_dataWiekowanie.Substring(3,2)]</InArgument>
+                        </Assign.Value>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Assign>
+                    </Sequence>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="559,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Ustalono date wiekowania zapisow&quot;]" />
+                  </Sequence>
+                </ActivityAction>
+              </ufa:FormActivity.Body>
+              <ufa:FormActivity.DelayBody>
+                <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                  <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                </ActivityAction>
+              </ufa:FormActivity.DelayBody>
+              <ufa:FormActivity.FormFieldsCollection>
+                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+              </ufa:FormActivity.FormFieldsCollection>
+            </ufa:FormActivity>
+          </Sequence>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>

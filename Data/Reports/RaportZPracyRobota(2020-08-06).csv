@@ -1,0 +1,118 @@
+﻿id,status,komentarz,data_startu,data_zakończenia,nazwa_spolki
+PL1.ARE,nowy,,,,ABADON REAL ESTATE SPÓŁKA AKCYJNA
+PL1.MSA,nowy,,,,Murapol Spółka Akcyjna
+PL2.2014,nowy,,,,2014_Murapol Projekt spółka z ograniczoną odpowiedzialnością 2014 Sp.k.
+PL2.BBA,nowy,,,,BBA_MURAPOL PROJEKT SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ BBA SPÓŁKA KOMANDYTOWA
+PL2.BIU,nowy,,,,Murapol Biurowce Spółka z ograniczoną odpowiedzialnością
+PL2.CZE,nowy,,,,Murapol Czerwieńskiego Spółka z ograniczoną odpowiedzialnością spółka komandytowa
+PL2.DEW,nowy,,,,Murapol Projekt Spółka z ograniczoną odpowiedzialnością Deweloper SP.K.
+PL2.GAR,nowy,,,,MURAPOL GARBARNIA Sp. z o.o. Sp.k.
+PL2.GDA,nowy,,,,GDA_Murapol Invest Spółka z ograniczoną odpowiedzialnością GDA spółka Komandytowo - Akcyjna
+PL2.GDA2,nowy,,,,GDA II_MURAPOL INVEST Spółka z ograniczoną odpowiedzialnością GDA II spółka komandytowa
+PL2.GPDP,nowy,,,,59_Murapol Projekt 59 spółka z ograniczoną odpowiedzialnością
+PL2.JDO,nowy,,,,Murapol Jaśkowa Dolina sp. z o.o.
+PL2.KRK,nowy,,,,KRK_MURAPOL PROJEKT SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ KRK SPÓŁKA KOMANDYTOWA
+PL2.M&M,nowy,,,,"MURAPOL & M INVESTMENT Spółka z o.o"
+PL2.MWH,nowy,,,,Murapol Wola House sp. z o.o.
+PL2.NCZ,nowy,,,,"Murapol Projekt Spółka z ograniczoną odpowiedzialnością & S-ka - Nowe Czyżyny" Sp. K.
+PL2.NPA,nowy,,,,MURAPOL Nord Spółka z ograniczoną odpowiedzialnością PARTNER SP.K.
+PL2.NWI,nowy,,,,Murapol Nowe Winogrady Spółka z ograniczoną odpowiedzialnością Sp.k.
+PL2.P01,nowy,,,,01_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 1 Sp.k.
+PL2.P02,nowy,,,,02_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 2 Sp.k.
+PL2.P03,nowy,,,,03_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 3 Sp.k.
+PL2.P04,nowy,,,,04_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 4 Sp.k.
+PL2.P05,nowy,,,,05_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 5 Sp.k.
+PL2.P06,nowy,,,,06_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 6 Sp.k.
+PL2.P07,nowy,,,,07_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 7 Sp.k.
+PL2.P08,nowy,,,,08_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 8 Sp.k.
+PL2.P09,nowy,,,,09_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 9 Sp.k.
+PL2.P10,nowy,,,,10_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 10 Sp.k.
+PL2.P11,nowy,,,,11_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 11 Sp.k.
+PL2.P12,nowy,,,,12_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 12 Sp.k.
+PL2.P13,nowy,,,,13_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 13 Sp.k.
+PL2.P14,nowy,,,,14_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 14 Sp.k.
+PL2.P15,nowy,,,,15_Murapol Projekt spółka z ograniczoną odpowiedzialnością 15 Sp.k.
+PL2.P16,nowy,,,,16_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 16 Sp.k.
+PL2.P17,nowy,,,,17_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 17 Sp.k.
+PL2.P18,nowy,,,,18_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 18 Sp.k.
+PL2.P19,nowy,,,,19_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 19 Sp.k.
+PL2.P20,nowy,,,,20_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 20 Sp.k.
+PL2.P21,nowy,,,,21_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 21 Sp.k.
+PL2.P22,nowy,,,,22_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 22 Sp.k.
+PL2.P23,nowy,,,,23_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 23 Sp.k.
+PL2.P24,nowy,,,,24_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 24 Sp.k.
+PL2.P25,nowy,,,,25_Murapol Projekt  Spółka z ograniczoną odpowiedzialnością 25 Sp.k.
+PL2.P26,nowy,,,,26_Murapol Projekt 26 Spółka z ograniczoną odpowiedzialnością 
+PL2.P27,nowy,,,,27_Murapol Projekt 27 Spółka z ograniczoną odpowiedzialnością
+PL2.P28,nowy,,,,28_Murapol Projekt 28 Spółka z ograniczoną odpowiedzialnością
+PL2.P29,nowy,,,,29_Murapol Projekt 29 Spółka z ograniczoną odpowiedzialnością
+PL2.P30,nowy,,,,30_Murapol Projekt 30 Spółka z ograniczoną odpowiedzialnością
+PL2.P31,nowy,,,,31_Murapol Projekt 31 Spółka z ograniczoną odpowiedzialnością
+PL2.P32,nowy,,,,32_Murapol Projekt 32 Spółka z ograniczoną odpowiedzialnością
+PL2.P33,nowy,,,,33_Murapol Projekt 33 Spółka z ograniczoną odpowiedzialnością
+PL2.P34,nowy,,,,34_Murapol Projekt 34 Sp. z o.o.
+PL2.P35,nowy,,,,35_Murapol Projekt 35 Spółka z ograniczoną odpowiedzialnością
+PL2.P36,nowy,,,,36_Murapol Projekt 36 Spółka z ograniczoną odpowiedzialnością
+PL2.P37,nowy,,,,37_Murapol Projekt 37 Spółka z ograniczoną odpowiedzialnością
+PL2.P38,nowy,,,,38_Murapol Projekt 38 Spółka z ograniczoną odpowiedzialnością
+PL2.P39,nowy,,,,39_Murapol Projekt 39 Spółka z ograniczoną odpowiedzialnością
+PL2.P40,nowy,,,,40_Murapol Projekt 40 Spółka z ograniczoną odpowiedzialnością
+PL2.P41,nowy,,,,41_Murapol Projekt 41 Spółka z ograniczoną odpowiedzialnością
+PL2.P42,nowy,,,,42_Murapol Projekt 42 Spółka z ograniczoną odpowiedzialnością
+PL2.P43,nowy,,,,43_Murapol Projekt 43 Spółka z ograniczoną odpowiedzialnością
+PL2.P44,nowy,,,,44_Murapol Projekt 44 Spółka z ograniczoną odpowiedzialnością
+PL2.P45,nowy,,,,45_Murapol Projekt 45 Spółka z ograniczoną odpowiedzialnością
+PL2.P46,nowy,,,,46_Murapol Projekt 46 Spółka z ograniczoną odpowiedzialnością
+PL2.P47,nowy,,,,47_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 47 Spółka komandytowa
+PL2.P48,nowy,,,,48_Murapol Projekt 48 Spółka z ograniczoną odpowiedzialnością
+PL2.P49,nowy,,,,49_Murapol Projekt 49 Spółka z ograniczoną odpowiedzialnością
+PL2.P50,nowy,,,,50_Murapol Projekt 50 Spółka z ograniczoną odpowiedzialnością
+PL2.P51,nowy,,,,51_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 51 Spółka komandytowa
+PL2.P52,nowy,,,,52_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 52 Spółka komandytowa
+PL2.P53,nowy,,,,53_Murapol Projekt 53 Spółka z ograniczoną odpowiedzialnością
+PL2.P54,nowy,,,,54_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 54 Spółka komandytowa
+PL2.P55,nowy,,,,55_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 55 Spółka komandytowa
+PL2.P56,nowy,,,,56_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 56 Spółka komandytowa
+PL2.P57,nowy,,,,57_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 57 Spółka komandytowa
+PL2.P58,nowy,,,,58_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 58 Spółka komandytowa
+PL3.WZW,nowy,,,,60_Murapol Projekt 60 spółka z ograniczoną odpowiedzialnością
+PL6.HRE3,nowy,,,,61_Murapol Projekt Spółka z ograniczoną odpowiedzialnością 61 Spółka komandytowa
+PL6.HRE4,nowy,,,,62_Murapol Projekt 62  SKA
+PL6.HRE5,nowy,,,,63_Murapol Projekt 63  SKA
+PL2.PP,nowy,,,,PP_Murapol Projekt Spółka z ograniczoną odpowiedzialnością PP Sp.k.
+PL2.PRO,nowy,,,,00_Murapol Projekt Sp. z o.o. sp. k.
+PL2.RAD,nowy,,,,Murapol Radockiego Spółka z ograniczoną odpowiedzialnością
+PL2.SMA,nowy,,,,Murapol Staromiejskie Apartamenty  Spółka z ograniczoną odpowiedzialnością
+PL2.SMI,nowy,,,,Murapol Smidowicza Sp. z o.o.
+PL2.WES,nowy,,,,Murapol Westini Sp. z o.o.
+PL2.WOL,nowy,,,,MURAPOL WOLA Spółka z ograniczoną odpowiedzialnością spółka komandytowa
+PL2.WRO,nowy,,,,WRO_Murapol Projekt Spółka z ograniczoną odpowiedzialnością WRO Sp.k.
+PL3.CUW,nowy,,,,Murapol Centrum Usług Wspólnych Sp. z o.o.
+PL3.HCG,nowy,,,,Home Credit Group Finanse i Nieruchomości Spółka z ograniczoną odpowiedzialnością
+PL3.MAD,nowy,,,,MAD SP. Z O.O.
+PL3.MDEW,nowy,,,,MEDIA DEWELOPER.PL SP. Z O.O.
+PL3.MFM,nowy,,,,MAJOR FACILITY MANAGEMENT
+PL3.PAR,nowy,,,,Partner S.A.
+PL3.PMSA,nowy,,,,PLATFORMA MIESZKANIOWA S.A.
+PL3.WHI,nowy,,,,WHIZZ S.A.
+PL3.WTO,nowy,,,,WYBIERAM.TO Sp. z o.o.
+PL4.CZE,nowy,,,,Murapol Czerwieńskiego Sp. z o.o.
+PL4.GAR,nowy,,,,MURAPOL GARBARNIA Sp. z o.o.
+PL4.INV,nowy,,,,Murapol Invest Sp. z o.o.
+PL4.NOR,nowy,,,,MURAPOL NORD
+PL4.NWI,nowy,,,,Murapol Nowe Winogrady Sp. z o.o.
+PL4.PIA,nowy,,,,MURAPOL PIASTÓW SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ
+PL4.PRO,nowy,,,,MURAPOL PROJEKT Sp. z o.o.
+PL4.WOL,nowy,,,,Murapol Wola Sp. z o.o.
+PL5.CBU,nowy,,,,CROSS BUD SPÓŁKA AKCYJNA
+PL6.MAM,nowy,,,,Murapol Asset Management Spółka Akcyjna
+PL6.MFM2,nowy,,,,MFM CAPITAL 2
+PL6.MFM3,nowy,,,,MFM CAPITAL 3 SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ
+PL6.MFM4,nowy,,,,MFM CAPITAL 4 SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ
+PL6.MFM5,nowy,,,,MFM CAPITAL 5 SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ
+PL6.MFM6,nowy,,,,MFM CAPITAL 6
+PL6.NZL,nowy,,,,Murapol Nowy Złocień 23 Spółka z ograniczoną odpowiedzialnością
+PL6.PTF,nowy,,,,PETROFOX spółka z ograniczoną odpowiedzialnością
+PL6.TP17,nowy,,,,TP XVII CAPITAL
+PL6.TP19,nowy,,,,TP XIX CAPITAL SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ 
+PL6.TP3,nowy,,,,TP III CAPITAL
